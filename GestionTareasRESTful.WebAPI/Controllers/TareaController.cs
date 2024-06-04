@@ -1,4 +1,5 @@
 ﻿using GestionTareasRESTful.Application.Tareas.Commands.CreateTarea;
+using GestionTareasRESTful.Application.Tareas.Commands.DeleteTarea;
 using GestionTareasRESTful.Application.Tareas.Commands.UpdateTarea;
 using GestionTareasRESTful.Application.Tareas.Queries.GetTareaById;
 using GestionTareasRESTful.Application.Tareas.Queries.GetTareas;
@@ -10,6 +11,8 @@ namespace GestionTareasRESTful.WebAPI.Controllers
     [ApiController]
     public class TareaController : ApiControllerBase
     {
+
+        //[HttpGet]
         [HttpGet("GetTareas")]
         public async Task<IActionResult> GetAll()
         {
@@ -17,6 +20,8 @@ namespace GestionTareasRESTful.WebAPI.Controllers
             return Ok(tareas);
         }
 
+
+        //[HttpGet("{id}")]
         [HttpGet("GetTareasById/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -27,6 +32,8 @@ namespace GestionTareasRESTful.WebAPI.Controllers
             return Ok(tarea);
         }
 
+
+        //[HttpPost]
         [HttpPost("InsertTarea")]
         public async Task<IActionResult> Create(CreateTareaCommand command)
         {
@@ -42,6 +49,18 @@ namespace GestionTareasRESTful.WebAPI.Controllers
                 return BadRequest();
             }
             
+            await Mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpPut("EliminarTarea/{id}")]
+        public async Task<IActionResult> Update(int id, DeleteTareaCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
             await Mediator.Send(command);
             return NoContent();
         }
