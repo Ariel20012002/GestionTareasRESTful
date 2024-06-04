@@ -12,7 +12,8 @@ namespace GestionTareasRESTful.Domain.Repository
         Task<List<Tarea>> GetAllTareasAsync();
         Task<Tarea> GetByIdAsync(int id);
         Task<Tarea> CreateAsync(Tarea tarea);
-        Task<Tarea> UpdateAsync(int id, Tarea tarea);
-        Task DeleteAsync(int id);
+        Task<int> UpdateAsync(int id, Tarea tarea);
+        Task<int> UpdateStateAsync(int id, Tarea tarea);
+        Task<int> DeleteAsync(int id);
     }
 }

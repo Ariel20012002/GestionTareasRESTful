@@ -21,17 +21,6 @@ namespace GestionTareasRESTful.Application.Tareas.Queries.GetTareas
         public async Task<List<TareaVm>> Handle(GetTareaQuery request, CancellationToken cancellationToken)
         {
             var tareas = await _tareaRepository.GetAllTareasAsync();
-            /*
-            var tareaList = tareas.Select(t => new TareaVm {
-                    Id = t.Id,
-                    Nombre = t.Nombre,
-                    Comentario = t.Comentario,
-                    Est_Tarea = t.Est_Tarea,
-                    Estado = t.Estado,
-                    Create_Time = t.Create_Time,
-                    Update_Time = t.Update_Time
-            }).ToList();
-            */
             var tareaList = _mapper.Map<List<TareaVm>>(tareas);
             return tareaList;
         }
