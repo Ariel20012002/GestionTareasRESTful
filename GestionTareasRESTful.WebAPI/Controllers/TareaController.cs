@@ -13,7 +13,7 @@ namespace GestionTareasRESTful.WebAPI.Controllers
     {
 
         //[HttpGet]
-        [HttpGet("GetTareas")]
+        [HttpGet("get-tareas")]
         public async Task<IActionResult> GetAll()
         {
             var tareas = await Mediator.Send(new GetTareaQuery());
@@ -22,7 +22,7 @@ namespace GestionTareasRESTful.WebAPI.Controllers
 
 
         //[HttpGet("{id}")]
-        [HttpGet("GetTareasById/{id}")]
+        [HttpGet("get-tareasbyid/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var tarea = await Mediator.Send(new GetTareaByIdQuery() { TareaId = id });
@@ -34,14 +34,14 @@ namespace GestionTareasRESTful.WebAPI.Controllers
 
 
         //[HttpPost]
-        [HttpPost("InsertTarea")]
+        [HttpPost("insert-tarea")]
         public async Task<IActionResult> Create(CreateTareaCommand command)
         {
             var createdTarea = await Mediator.Send(command);
             return CreatedAtAction(nameof(GetById), new {id = createdTarea.Id}, createdTarea);
         }
 
-        [HttpPut("ActualizarTarea/{id}")]
+        [HttpPut("actualizar-tarea/{id}")]
         public async Task<IActionResult> Update(int id, UpdateTareaCommand command)
         {
             if(id != command.Id)
@@ -53,7 +53,7 @@ namespace GestionTareasRESTful.WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpPut("EliminarTarea/{id}")]
+        [HttpPut("eliminar-tarea/{id}")]
         public async Task<IActionResult> Update(int id, DeleteTareaCommand command)
         {
             if (id != command.Id)
