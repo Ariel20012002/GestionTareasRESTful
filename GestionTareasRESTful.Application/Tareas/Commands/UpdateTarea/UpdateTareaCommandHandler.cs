@@ -19,7 +19,7 @@ namespace GestionTareasRESTful.Application.Tareas.Commands.UpdateTarea
                 Id = request.Id,
                 Nombre = request.Nombre,
                 Comentario = request.Comentario,
-                Est_Tarea = request.Est_Tarea,
+                EstTarea = request.EstTarea,
             };
 
             return await _tareaRepository.UpdateAsync(request.Id, updateTareaEntity);

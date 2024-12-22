@@ -45,7 +45,7 @@ namespace GestionTareasRESTful.Infraestructure.Repository
                     .SetProperty(m => m.Id, tarea.Id)
                     .SetProperty(m => m.Nombre, tarea.Nombre)
                     .SetProperty(m => m.Comentario, tarea.Comentario)
-                    .SetProperty(m => m.Est_Tarea, tarea.Est_Tarea)
+                    .SetProperty(m => m.EstTarea, tarea.EstTarea)
                 );
         }
 

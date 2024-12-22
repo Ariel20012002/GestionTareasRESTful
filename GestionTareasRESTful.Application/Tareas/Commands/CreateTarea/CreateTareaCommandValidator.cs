@@ -13,7 +13,7 @@ namespace GestionTareasRESTful.Application.Tareas.Commands.CreateTarea
             RuleFor(v => v.Comentario)
                 .MaximumLength(255).WithMessage("No debe escribir mas de 255 caracteres");
 
-            RuleFor(v => v.Est_Tarea)
+            RuleFor(v => v.EstTarea)
                 .NotEmpty().WithMessage("Debe seleccionar un estado");
 
             RuleFor(v => v.Estado)

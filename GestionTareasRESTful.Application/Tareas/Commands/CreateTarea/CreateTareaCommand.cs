@@ -10,7 +10,7 @@ namespace GestionTareasRESTful.Application.Tareas.Commands.CreateTarea
         public string Nombre { get; set; }
         [MaxLength(255)]
         public string? Comentario { get; set; }
-        public int Est_Tarea { get; set; }
+        public int EstTarea { get; set; }
         public int Estado { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace GestionTareasRESTful.Application.Tareas.Commands.CreateTarea
             { 
                 Nombre = request.Nombre,
                 Comentario = request.Comentario,
-                Est_Tarea = request.Est_Tarea,
+                EstTarea = request.EstTarea,
                 Estado = request.Estado
             };
             var Result = await _tareaRepository.CreateAsync(tareaEnity);
