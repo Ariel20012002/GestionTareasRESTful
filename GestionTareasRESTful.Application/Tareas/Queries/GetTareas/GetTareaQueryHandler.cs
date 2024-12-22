@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using GestionTareasRESTful.Domain.Repository;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionTareasRESTful.Application.Tareas.Queries.GetTareas
 {

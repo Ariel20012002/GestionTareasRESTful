@@ -2,11 +2,6 @@
 using GestionTareasRESTful.Domain.Repository;
 using GestionTareasRESTful.Infraestructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionTareasRESTful.Infraestructure.Repository
 {
@@ -25,9 +20,11 @@ namespace GestionTareasRESTful.Infraestructure.Repository
             return tarea;
         }
 
-        public Task<int> DeleteAsync(int id)
+        public async Task<int> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _tareaDbContext.Tareas
+                   .Where(model => model.Id == id)
+                   .ExecuteDeleteAsync();
         }
 
         public async Task<List<Tarea>> GetAllTareasAsync()
